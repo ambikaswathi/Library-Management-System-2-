@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Return Book - Library Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <h1>Return Book</h1>
+
+    {% if issues %}
+
+    <form method="POST">
+
+        <label>Select Issued Book</label>
+
+        <select name="issue_id" required>
+            <option value="">-- Select Book --</option>
+
+            {% for issue in issues %}
+            <option value="{{ issue.id }}">
+                {{ issue.title }} - {{ issue.name }}
+            </option>
+            {% endfor %}
+
+        </select>
+
+        <label>Return Date</label>
+        <input type="date" name="return_date" required>
+
+        <button type="submit" class="btn">
+            Return Book
+        </button>
+
+    </form>
+
+    {% else %}
+
+    <p>No books are currently issued.</p>
+
+    {% endif %}
+
+    <br>
+
+    <a href="{{ url_for('dashboard') }}">← Back to Dashboard</a>
+
+</div>
+
+</body>
+</html>

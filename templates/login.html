@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Management System</title>
+</head>
+<body>
+
+    <h1>Library Management System</h1>
+
+    <h2>Admin Login</h2>
+
+    <form method="POST">
+        <label>Username:</label>
+        <input type="text" name="username" placeholder="Username" required>
+
+        <br><br>
+
+        <label>Password:</label>
+        <input type="password" name="password" placeholder="Password" required>
+
+        <br><br>
+
+        <button type="submit">Login</button>
+    </form>
+    {% if error %}
+    <p>{{ error }}</p>
+    {% endif %}
+
+</body>
+</html>

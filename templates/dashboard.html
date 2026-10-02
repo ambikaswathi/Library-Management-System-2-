@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Dashboard</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+
+        <h2>📚 Library</h2>
+
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('books') }}">Books</a>
+        <a href="{{ url_for('members') }}">Members</a>
+        <a href="{{ url_for('issue_book') }}">Issue Book</a>
+        <a href="{{ url_for('return_book') }}">Return Book</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+
+    </aside>
+
+    <main class="main-content">
+
+        <div class="top-bar">
+            <h1>Dashboard</h1>
+            <span>Admin</span>
+        </div>
+
+        <p class="welcome">
+            Welcome to the Library Management System
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Total Books</h3>
+                <p>{{ total_books }}</p>
+            </div>
+
+            <div class="card">
+                <h3>Total Members</h3>
+                <p>{{ total_members }}</p>
+            </div>
+
+            <div class="card">
+                <h3>Issued Books</h3>
+                <p>{{ issued_books }}</p>
+            </div>
+
+            <div class="card">
+                <h3>Returned Books</h3>
+                <p>{{ returned_books }}</p>
+            </div>
+
+        </div>
+
+        <div class="dashboard-info">
+
+            <h2>Library Overview</h2>
+
+            <p>
+                Manage books, members, issue records and return
+                records from this dashboard.
+            </p>
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

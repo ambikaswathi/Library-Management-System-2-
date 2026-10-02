@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Issue Book - Library Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <h1>Issue Book</h1>
+
+    <form method="POST">
+
+        <label>Select Book</label>
+        <select name="book_id" required>
+            <option value="">-- Select Book --</option>
+
+            {% for book in books %}
+            <option value="{{ book.id }}">
+                {{ book.title }} - Available: {{ book.quantity }}
+            </option>
+            {% endfor %}
+        </select>
+
+        <label>Select Member</label>
+        <select name="member_id" required>
+            <option value="">-- Select Member --</option>
+
+            {% for member in members %}
+            <option value="{{ member.id }}">
+                {{ member.name }}
+            </option>
+            {% endfor %}
+        </select>
+
+        <label>Issue Date</label>
+        <input type="date" name="issue_date" required>
+
+        <button type="submit" class="btn">Issue Book</button>
+
+    </form>
+
+    <br>
+
+    <a href="{{ url_for('dashboard') }}">← Back to Dashboard</a>
+
+</div>
+
+</body>
+</html>
