@@ -47,7 +47,14 @@ def init_db():
     conn.close()
 
 
-@app.route("/", methods=["GET", "POST"])
+# HOME / INDEX PAGE
+@app.route("/")
+def home():
+    return render_template("index.html")
+
+
+# LOGIN
+@app.route("/login", methods=["GET", "POST"])
 def login():
 
     if request.method == "POST":
@@ -55,7 +62,7 @@ def login():
         username = request.form.get("username")
         password = request.form.get("password")
 
-        if username == "admin" and password == "admin123":
+        if username == "Swathi V" and password == "swathi123":
             session["logged_in"] = True
             return redirect(url_for("dashboard"))
 
@@ -67,6 +74,7 @@ def login():
     return render_template("login.html")
 
 
+# DASHBOARD
 @app.route("/dashboard")
 def dashboard():
 
@@ -102,6 +110,7 @@ def dashboard():
     )
 
 
+# BOOKS
 @app.route("/books")
 def books():
 
@@ -115,6 +124,7 @@ def books():
     return render_template("books.html", books=books)
 
 
+# ADD BOOK
 @app.route("/add_book", methods=["GET", "POST"])
 def add_book():
 
@@ -143,6 +153,7 @@ def add_book():
     return render_template("add_book.html")
 
 
+# MEMBERS
 @app.route("/members")
 def members():
 
@@ -156,6 +167,7 @@ def members():
     return render_template("members.html", members=members)
 
 
+# ADD MEMBER
 @app.route("/add_member", methods=["GET", "POST"])
 def add_member():
 
@@ -183,6 +195,7 @@ def add_member():
     return render_template("add_member.html")
 
 
+# ISSUE BOOK
 @app.route("/issue_book", methods=["GET", "POST"])
 def issue_book():
 
@@ -224,6 +237,7 @@ def issue_book():
     )
 
 
+# RETURN BOOK
 @app.route("/return_book", methods=["GET", "POST"])
 def return_book():
 
@@ -267,6 +281,7 @@ def return_book():
     )
 
 
+# LOGOUT
 @app.route("/logout")
 def logout():
 

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Library Management System</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff7ed,
+                    #fdf2f8,
+                    #f5f3ff
+                );
+        }
+
+        .container {
+            width: 850px;
+            text-align: center;
+
+            background: rgba(255, 255, 255, 0.98);
+
+            padding: 45px 55px;
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 20px 50px rgba(88, 28, 135, 0.15);
+
+            border: 1px solid #f1e5f7;
+        }
+
+        /* Library Icon */
+
+        .library-icon {
+            width: 70px;
+            height: 70px;
+
+            margin: 0 auto 18px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #7c3aed,
+                    #db2777
+                );
+
+            color: white;
+
+            border-radius: 18px;
+
+            font-size: 32px;
+            font-weight: bold;
+
+            box-shadow:
+                0 8px 20px rgba(124, 58, 237, 0.25);
+        }
+
+        h1 {
+            margin: 0;
+
+            color: #3b0764;
+
+            font-size: 38px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            color: #78716c;
+
+            font-size: 16px;
+
+            margin: 12px 0 30px;
+        }
+
+        /* Books */
+
+        .books {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+
+            gap: 10px;
+
+            height: 120px;
+
+            margin-bottom: 30px;
+        }
+
+        .book {
+            width: 48px;
+
+            border-radius: 5px 5px 2px 2px;
+
+            box-shadow:
+                3px 5px 10px rgba(0, 0, 0, 0.18);
+
+            position: relative;
+
+            transition: 0.3s;
+        }
+
+        .book:hover {
+            transform: translateY(-10px) rotate(-2deg);
+        }
+
+        .book::after {
+            content: "";
+
+            position: absolute;
+
+            left: 7px;
+            right: 7px;
+
+            top: 15px;
+
+            height: 2px;
+
+            background: rgba(255, 255, 255, 0.7);
+
+            box-shadow:
+                0 8px rgba(255, 255, 255, 0.45);
+        }
+
+        .book1 {
+            height: 95px;
+            background: #7c3aed;
+        }
+
+        .book2 {
+            height: 115px;
+            background: #db2777;
+        }
+
+        .book3 {
+            height: 85px;
+            background: #ea580c;
+        }
+
+        .book4 {
+            height: 105px;
+            background: #0f766e;
+        }
+
+        .book5 {
+            height: 120px;
+            background: #ca8a04;
+        }
+
+        .book6 {
+            height: 90px;
+            background: #c026d3;
+        }
+
+        .book7 {
+            height: 110px;
+            background: #059669;
+        }
+
+        .book8 {
+            height: 100px;
+            background: #e11d48;
+        }
+
+        /* Shelf */
+
+        .shelf {
+            width: 500px;
+            height: 9px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #7c2d12,
+                    #92400e,
+                    #78350f
+                );
+
+            margin: -22px auto 32px;
+
+            border-radius: 5px;
+
+            box-shadow:
+                0 5px 10px rgba(0, 0, 0, 0.18);
+        }
+
+        /* Login */
+
+        .login-btn {
+            display: inline-block;
+
+            padding: 14px 55px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #7c3aed,
+                    #db2777
+                );
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 7px 18px rgba(219, 39, 119, 0.25);
+
+            transition: 0.3s;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-3px);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #6d28d9,
+                    #be185d
+                );
+
+            box-shadow:
+                0 10px 25px rgba(219, 39, 119, 0.35);
+        }
+
+        .footer {
+            margin-top: 25px;
+
+            color: #a8a29e;
+
+            font-size: 13px;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 700px) {
+
+            .container {
+                width: 92%;
+                padding: 35px 20px;
+            }
+
+            h1 {
+                font-size: 27px;
+            }
+
+            .shelf {
+                width: 90%;
+            }
+
+            .books {
+                gap: 5px;
+            }
+
+            .book {
+                width: 35px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="library-icon">
+            L
+        </div>
+
+        <h1>LIBRARY MANAGEMENT SYSTEM</h1>
+
+        <p class="subtitle">
+            Manage Books, Members and Library Records Easily
+        </p>
+
+        <div class="books">
+
+            <div class="book book1"></div>
+            <div class="book book2"></div>
+            <div class="book book3"></div>
+            <div class="book book4"></div>
+            <div class="book book5"></div>
+            <div class="book book6"></div>
+            <div class="book book7"></div>
+            <div class="book book8"></div>
+
+        </div>
+
+        <div class="shelf"></div>
+
+        <a href="{{ url_for('login') }}" class="login-btn">
+            LOGIN
+        </a>
+
+        <div class="footer">
+            Secure • Simple • Efficient
+        </div>
+
+    </div>
+
+</body>
+</html>
